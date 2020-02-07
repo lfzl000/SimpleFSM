@@ -75,13 +75,13 @@ public void InitFsm()
 
 ### 跳转状态
 
-## 无参数
+#### 无参数
 
 ``` csharp
 FsmManager.Instance.ChangeState(FsmConsts.FSM_TEST_1);
 ```
 
-## 有参数
+#### 有参数
 
 1. 新建一个参数类，继承 IFsmStateParam 接口
 ``` csharp
