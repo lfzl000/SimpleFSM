@@ -16,7 +16,7 @@ FsmManager.Instance.StartFsm();
 2. 实现接口 IFsmState
 3. 在 FsmConsts 定义一个消息名
 
-注册消息代码示例:
+代码示例:
 
 ``` csharp
 using UnityEngine;
@@ -42,7 +42,7 @@ public class FSMTest1 : IFsmState
 }
 ```
 
-定义消息名称:
+定义状态名称:
 
 ``` csharp
 namespace ZLFSM
@@ -62,7 +62,7 @@ namespace ZLFSM
 1. 在 FsmManager.cs - InitFsm() 方法中 new 一个状态示例
 2. 把状态示例注册到状态列表
 
-发送消息代码示例:
+注册状态示例:
 
 ``` csharp
 public void InitFsm()
