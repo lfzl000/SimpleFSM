@@ -38,6 +38,11 @@ namespace ZLFSM
 
         public void InitFsm()
         {
+            FSMTest1 fSMTest1 = new FSMTest1();
+            FSMTest2 fSMTest2 = new FSMTest2();
+
+            RegistState(fSMTest1);
+            RegistState(fSMTest2);
         }
 
         /// <summary>
