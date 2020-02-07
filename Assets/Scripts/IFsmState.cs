@@ -10,9 +10,6 @@ namespace ZLFSM
         int FsmStateName { get; }
         void OnInitState(IFsmStateParam _param);
         void OnFinishState();
-        void OnUpdateState();
-        void OnFixedUpdateState();
-        void OnLateUpdateState();
     }
 
     public interface IFsmStateParam

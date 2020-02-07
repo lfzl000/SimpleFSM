@@ -5,7 +5,10 @@ using ZLFSM;
 
 public class Test : MonoBehaviour
 {
-    public FsmManager mFsmManager;
+    void Start()
+    {
+        FsmManager.Instance.StartFsm();
+    }
 
     void Update()
     {
@@ -15,7 +18,7 @@ public class Test : MonoBehaviour
             {
                 testStr = "11111"
             };
-            mFsmManager.ChangeState(FsmConsts.FSM_TEST_1, param);
+            FsmManager.Instance.ChangeState(FsmConsts.FSM_TEST_1, param);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
@@ -23,11 +26,11 @@ public class Test : MonoBehaviour
             {
                 testStr = "22222"
             };
-            mFsmManager.ChangeState(FsmConsts.FSM_TEST_2, param);
+            FsmManager.Instance.ChangeState(FsmConsts.FSM_TEST_2, param);
         }
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
-            mFsmManager.ChangeState(FsmConsts.FSM_DEFAULT);
+            FsmManager.Instance.ChangeState(FsmConsts.FSM_DEFAULT);
         }
     }
 }

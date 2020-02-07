@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ZLFSM
 {
-    public class FsmManager : MonoBehaviour
+    public class FsmManager : Singletons<FsmManager>
     {
         private int m_CurState = int.MaxValue;
         private int m_PreState = int.MaxValue;
@@ -34,7 +34,7 @@ namespace ZLFSM
             }
         }
 
-        private void Start()
+        public void StartFsm()
         {
             InitFsm();
             FSMDefault fSMDefault = new FSMDefault();
@@ -45,7 +45,7 @@ namespace ZLFSM
         /// <summary>
         /// 初始化状态机
         /// </summary>
-        public void InitFsm()
+        private void InitFsm()
         {
             FSMTest1 fSMTest1 = new FSMTest1();
             FSMTest2 fSMTest2 = new FSMTest2();
@@ -111,21 +111,6 @@ namespace ZLFSM
 
             m_FsmList = null;
         }
-
-        private void Update()
-        {
-            m_CurStateFsm?.OnUpdateState();
-        }
-
-        private void FixedUpdate()
-        {
-            m_CurStateFsm?.OnFixedUpdateState();
-        }
-
-        private void LateUpdate()
-        {
-            m_CurStateFsm?.OnLateUpdateState();
-        }
     }
 
     public class FSMDefault : IFsmState
@@ -143,21 +128,9 @@ namespace ZLFSM
             Debug.Log("结束默认状态");
         }
 
-        public void OnFixedUpdateState()
-        {
-        }
-
         public void OnInitState(IFsmStateParam _param)
         {
             Debug.Log("开启默认状态");
-        }
-
-        public void OnLateUpdateState()
-        {
-        }
-
-        public void OnUpdateState()
-        {
         }
     }
 }
