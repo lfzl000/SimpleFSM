@@ -4,12 +4,8 @@
 
 在项目开始初始化 FSM
 
-示例:
 ``` csharp
-void Start()
-{
-    FsmManager.Instance.StartFsm();
-}
+FsmManager.Instance.StartFsm();
 ```
 
 ### 新建状态
