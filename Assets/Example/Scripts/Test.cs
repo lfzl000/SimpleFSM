@@ -11,11 +11,28 @@ public class Test : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            mFsmManager.ChangeState(FsmConsts.FSM_TEST_1);
+            TestParam param = new TestParam
+            {
+                testStr = "11111"
+            };
+            mFsmManager.ChangeState(FsmConsts.FSM_TEST_1, param);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            mFsmManager.ChangeState(FsmConsts.FSM_TEST_2);
+            TestParam param = new TestParam
+            {
+                testStr = "22222"
+            };
+            mFsmManager.ChangeState(FsmConsts.FSM_TEST_2, param);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            mFsmManager.ChangeState(FsmConsts.FSM_DEFAULT);
         }
     }
+}
+
+public class TestParam : IFsmStateParam
+{
+    public string testStr;
 }

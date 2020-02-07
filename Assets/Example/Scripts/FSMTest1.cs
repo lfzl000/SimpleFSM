@@ -15,6 +15,7 @@ public class FSMTest1 : IFsmState
 
     public void OnFinishState()
     {
+        Debug.Log("Finish 1");
     }
 
     public void OnFixedUpdateState()
@@ -23,6 +24,8 @@ public class FSMTest1 : IFsmState
 
     public void OnInitState(IFsmStateParam _param)
     {
+        TestParam param = _param as TestParam;
+        Debug.Log(param.testStr);
     }
 
     public void OnLateUpdateState()

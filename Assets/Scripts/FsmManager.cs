@@ -12,6 +12,9 @@ namespace ZLFSM
         private IFsmState m_CurStateFsm;
         private KeyValueList<int, IFsmState> m_FsmList;
 
+        /// <summary>
+        /// 当前状态
+        /// </summary>
         public int CurrectState
         {
             get
@@ -20,6 +23,9 @@ namespace ZLFSM
             }
         }
 
+        /// <summary>
+        /// 上一个状态
+        /// </summary>
         public int PreviousState
         {
             get
@@ -36,6 +42,9 @@ namespace ZLFSM
             ChangeState(FsmConsts.FSM_DEFAULT);
         }
 
+        /// <summary>
+        /// 初始化状态机
+        /// </summary>
         public void InitFsm()
         {
             FSMTest1 fSMTest1 = new FSMTest1();
