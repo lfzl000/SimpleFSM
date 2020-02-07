@@ -2,6 +2,16 @@
 
 ## 使用说明
 
+在项目开始初始化 FSM
+
+示例:
+``` csharp
+void Start()
+{
+    FsmManager.Instance.StartFsm();
+}
+```
+
 ### 新建状态
 
 步骤:
@@ -30,19 +40,7 @@ public class FSMTest1 : IFsmState
     {
     }
 
-    public void OnFixedUpdateState()
-    {
-    }
-
     public void OnInitState(IFsmStateParam _param)
-    {
-    }
-
-    public void OnLateUpdateState()
-    {
-    }
-
-    public void OnUpdateState()
     {
     }
 }
@@ -81,4 +79,26 @@ public void InitFsm()
 
 ### 跳转状态
 
-步骤:
+## 无参数
+
+``` csharp
+FsmManager.Instance.ChangeState(FsmConsts.FSM_TEST_1);
+```
+
+## 有参数
+
+1. 新建一个参数类，继承 IFsmStateParam 接口
+``` csharp
+public class TestParam : IFsmStateParam
+{
+    public string testStr;
+}
+```
+2. 在需要跳转的地方 new 一个参数实例，然后跳转状态
+``` csharp
+TestParam param = new TestParam
+{
+    testStr = "11111"
+};
+FsmManager.Instance.ChangeState(FsmConsts.FSM_TEST_1, param);
+```
